@@ -40,10 +40,7 @@ const MORSE_TABLE = {
 function decode(expr) {
   let morse = expr.match(/.{1,10}/g)
   morse.forEach((value, index) => {
-    morse[index] = morse[index].replace(/10/g, '.');
-    morse[index] = morse[index].replace(/11/g, '-');
-    morse[index] = morse[index].replace(/00/g, '');
-    morse[index] = morse[index].replace(/\*\*\*\*\*\*\*\*\*\*/g, ' ');
+    morse[index] = morse[index].replace(/10/g, '.').replace(/11/g, '-').replace(/00/g, '').replace(/\*\*\*\*\*\*\*\*\*\*/g, ' ');
   })
   morse.forEach((value, index) => {
     if (value != ' ') morse[index] = MORSE_TABLE[value];
